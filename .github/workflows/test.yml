@@ -5,8 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo $GITHUB_EVENT
-          echo $GITHUB_REF
+          echo "GITHUB_EVENT: '$GITHUB_EVENT'"
+          echo "GITHUB_REF: '$GITHUB_REF'"
+          echo "GITHUB_SHA: '$GITHUB_SHA'"
       - name: Diffset
         id: diffset
         uses: softprops/diffset@v1
@@ -15,4 +16,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Print Diffset
-        run: ls -al ${{ steps.diffset.outputs.files }}
+        run: echo "${{ steps.diffset.outputs.files }}"
