@@ -5,8 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo $GITHUB_EVENT
-          echo $GITHUB_REF
+          echo "GITHUB_EVENT: '$GITHUB_EVENT'"
+          echo "GITHUB_REF: '$GITHUB_REF'"
+          echo "GITHUB_SHA: '$GITHUB_SHA'"
       - name: Diffset
         id: diffset
         uses: softprops/diffset@v1
