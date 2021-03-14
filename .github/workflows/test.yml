@@ -7,10 +7,10 @@ jobs:
       - run: |
           echo $GITHUB_EVENT
           echo $GITHUB_REF
-+     - name: Diffset
-+       id: diffset
-+       uses: softprops/diffset@v1
-+       env:
-+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Diffset
+        id: diffset
+        uses: softprops/diffset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Print Diffset
         run: ls -al ${{ steps.diffset.outputs.files }}
